@@ -1,26 +1,3 @@
-# Marketplace — Front + Back
-
-Front en React + Vite, conectado a un backend propio en `server/` (Node.js + Express + SQLite) con 3 roles: comprador, vendedor y administrador.
-
-## Correr el proyecto (dos procesos)
-
-```bash
-# 1. Backend (puerto 4000)
-cd server
-npm install
-npm run dev
-
-# 2. Frontend (puerto 5173), en otra terminal
-npm install
-npm run dev
-```
-
-Abre `http://localhost:5173`. El front lee la URL de la API desde `.env` (`VITE_API_URL`).
-
-Credenciales de prueba y detalle de la API en [`server/README.md`](./server/README.md).
-
----
-
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
