@@ -1,16 +1,40 @@
-# React + Vite
+# Mercado
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketplace con React/Vite en el frontend y Node.js, Express y SQLite en el backend.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 22 (`nvm use` dentro de la carpeta del proyecto)
 
-## React Compiler
+## Ejecutar localmente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+En una terminal, inicia el backend:
 
-## Expanding the ESLint configuration
+```bash
+cd server
+nvm use
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+En otra terminal, inicia el frontend:
+
+```bash
+nvm use
+npm install
+npm run dev
+```
+
+Abre `http://localhost:5173`.
+
+La configuracion local del backend vive en `server/.env`. No se sube a Git; toma `server/.env.example` como referencia.
+
+## Cuentas de demostracion
+
+| Rol | Correo | Contrasena |
+| --- | --- | --- |
+| Administrador | admin@marketplace.com | Admin123! |
+| Vendedor | vendedor@marketplace.com | Demo1234! |
+| Comprador | cliente@marketplace.com | Demo1234! |
+
+El pago esta simulado: finalizar una compra crea el pedido y actualiza el inventario, pero no realiza un cobro real.

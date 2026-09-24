@@ -13,9 +13,23 @@ import usersRoutes from './routes/users.routes.js'
 
 const app = express()
 const PORT = process.env.PORT || 4000
-const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:5173'
+const CORS_ORIGINS = (process.env.CORS_ORIGIN || 'http://localhost:5173,http://127.0.0.1:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean)
 
-app.use(cors({ origin: CORS_ORIGIN }))
+if (!process.env.JWT_SECRET) {
+  throw new Error('Falta JWT_SECRET. Crea server/.env usando server/.env.example como guia.')
+}
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || CORS_ORIGINS.includes(origin)) return callback(null, true)
+      return callback(new Error('Origen no permitido por CORS.'))
+    },
+  })
+)
 app.use(express.json())
 app.use('/uploads', express.static(uploadsDir))
 
